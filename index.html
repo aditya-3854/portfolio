@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,33 +7,22 @@
     <title>Aditya Warsh | Developer Portfolio</title>
 
     <meta name="description"
-        content="Aditya Warsh — Developer Portfolio. Web development, programming and creative digital projects.">
+          content="Aditya Warsh — Developer Portfolio. Web development, programming and creative digital projects.">
 
+    <meta name="theme-color" content="#050b18">
+
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
+          rel="stylesheet">
 
     <style>
-        :root {
-            --bg: #070b14;
-            --bg2: #0c1220;
-            --card: rgba(17, 25, 42, 0.72);
-            --card-solid: #111827;
 
-            --text: #f8fafc;
-            --muted: #94a3b8;
-
-            --accent: #38bdf8;
-            --accent2: #818cf8;
-            --green: #22c55e;
-
-            --border: rgba(148, 163, 184, 0.13);
-
-            --radius: 22px;
-            --transition: 0.3s ease;
-        }
+        /* =========================================================
+           RESET
+        ========================================================= */
 
         * {
             margin: 0;
@@ -48,13 +36,14 @@
 
         body {
             font-family: "Inter", sans-serif;
-            background:
-                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, .10), transparent 28%),
-                radial-gradient(circle at 85% 20%, rgba(129, 140, 248, .10), transparent 28%),
-                var(--bg);
-            color: var(--text);
-            line-height: 1.7;
+            background: #050b18;
+            color: #f8fafc;
+            line-height: 1.6;
             overflow-x: hidden;
+        }
+
+        body.menu-open {
+            overflow: hidden;
         }
 
         a {
@@ -65,61 +54,154 @@
         button,
         input,
         textarea {
-            font-family: inherit;
+            font: inherit;
         }
 
-        .container {
-            width: min(1120px, 92%);
-            margin: auto;
+        button {
+            border: 0;
         }
 
-        /* =========================
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        :root {
+            --bg: #050b18;
+            --bg-light: #081225;
+            --card: rgba(9, 22, 42, 0.72);
+            --card-solid: #0b1830;
+
+            --text: #f8fafc;
+            --muted: #9aabc3;
+
+            --blue: #18a8ff;
+            --blue-light: #38bdf8;
+            --purple: #7275ff;
+
+            --border: rgba(90, 170, 255, 0.18);
+
+            --radius: 18px;
+
+            --shadow:
+                0 25px 70px rgba(0, 0, 0, 0.35);
+        }
+
+
+        /* =========================================================
            BACKGROUND
-        ========================= */
+        ========================================================= */
 
-        .orb {
+        body::before {
+            content: "";
             position: fixed;
-            width: 350px;
-            height: 350px;
+            inset: 0;
+            pointer-events: none;
+            z-index: -5;
+
+            background:
+                radial-gradient(
+                    circle at 15% 15%,
+                    rgba(0, 145, 255, 0.12),
+                    transparent 28%
+                ),
+
+                radial-gradient(
+                    circle at 85% 20%,
+                    rgba(88, 91, 255, 0.10),
+                    transparent 30%
+                ),
+
+                radial-gradient(
+                    circle at 50% 80%,
+                    rgba(0, 153, 255, 0.05),
+                    transparent 35%
+                );
+        }
+
+        .grid-bg {
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: -4;
+
+            background-image:
+                linear-gradient(
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                ),
+                linear-gradient(
+                    90deg,
+                    rgba(255,255,255,0.018) 1px,
+                    transparent 1px
+                );
+
+            background-size: 60px 60px;
+
+            mask-image: linear-gradient(
+                to bottom,
+                black,
+                transparent 80%
+            );
+        }
+
+        .glow {
+            position: fixed;
+            width: 380px;
+            height: 380px;
             border-radius: 50%;
-            filter: blur(100px);
+            filter: blur(120px);
             opacity: .12;
             pointer-events: none;
-            z-index: -1;
+            z-index: -3;
         }
 
-        .orb.one {
-            background: var(--accent);
+        .glow.one {
+            background: #009dff;
             top: 10%;
-            left: -180px;
+            left: -220px;
         }
 
-        .orb.two {
-            background: var(--accent2);
-            right: -180px;
+        .glow.two {
+            background: #5d5dff;
+            right: -220px;
             bottom: 10%;
         }
 
-        /* =========================
+
+        /* =========================================================
+           CONTAINER
+        ========================================================= */
+
+        .container {
+            width: min(1150px, 92%);
+            margin: auto;
+        }
+
+
+        /* =========================================================
            NAVBAR
-        ========================= */
+        ========================================================= */
 
         nav {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
-            z-index: 1000;
 
-            background: rgba(7, 11, 20, .72);
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
+            z-index: 9999;
 
-            border-bottom: 1px solid rgba(255,255,255,.05);
+            background: rgba(4, 10, 22, 0.82);
+
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+
+            border-bottom: 1px solid rgba(90, 170, 255, 0.12);
         }
 
-        .nav-content {
-            height: 76px;
+        .nav-inner {
+            height: 70px;
+
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -127,612 +209,1395 @@
 
         .logo {
             font-family: "Space Grotesk", sans-serif;
+
             font-size: 1.4rem;
             font-weight: 700;
+
             letter-spacing: -1px;
         }
 
         .logo span {
-            color: var(--accent);
+            color: var(--blue-light);
         }
 
         .nav-links {
             display: flex;
-            gap: 30px;
+            align-items: center;
+            gap: 28px;
+
             list-style: none;
         }
 
         .nav-links a {
-            color: var(--muted);
-            font-size: .92rem;
+            position: relative;
+
+            color: #b7c4d8;
+
+            font-size: .84rem;
             font-weight: 500;
-            transition: var(--transition);
+
+            transition: .25s ease;
         }
 
-        .nav-links a:hover {
-            color: var(--text);
+        .nav-links a:hover,
+        .nav-links a.active {
+            color: white;
         }
 
-        .nav-cta {
-            padding: 10px 18px;
-            border: 1px solid rgba(56,189,248,.35);
+        .nav-links a.active::after {
+            content: "";
+
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: -12px;
+
+            width: 28px;
+            height: 2px;
+
+            margin: auto;
+
+            background: var(--blue-light);
+
+            box-shadow:
+                0 0 12px var(--blue-light);
+        }
+
+        .nav-resume {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            padding: 9px 17px;
+
+            border: 1px solid rgba(24,168,255,.65);
+
             border-radius: 999px;
-            color: var(--accent) !important;
+
+            color: #dff5ff !important;
+
+            transition: .25s ease;
         }
 
-        .nav-cta:hover {
-            background: rgba(56,189,248,.1);
+        .nav-resume:hover {
+            background: rgba(24,168,255,.10);
+            box-shadow: 0 0 25px rgba(24,168,255,.16);
+            transform: translateY(-1px);
         }
 
-        /* =========================
+        .nav-socials {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .nav-social {
+            color: #d3ddea;
+            font-size: 17px;
+
+            transition: .25s ease;
+        }
+
+        .nav-social:hover {
+            color: var(--blue-light);
+            transform: translateY(-2px);
+        }
+
+        .menu-btn {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border-radius: 10px;
+
+            border: 1px solid var(--border);
+
+            background: rgba(255,255,255,.03);
+
+            color: white;
+
+            cursor: pointer;
+        }
+
+
+        /* =========================================================
            HERO
-        ========================= */
+        ========================================================= */
 
         .hero {
             min-height: 100vh;
+
+            padding-top: 70px;
+
             display: flex;
             align-items: center;
-            padding: 130px 0 80px;
+
+            border-bottom: 1px solid rgba(100,160,220,.14);
         }
 
         .hero-grid {
+            min-height: calc(100vh - 70px);
+
             display: grid;
-            grid-template-columns: 1.3fr .7fr;
+
+            grid-template-columns: 1fr 1fr;
+
             align-items: center;
-            gap: 70px;
+
+            gap: 50px;
         }
 
-        .badge {
+        .hero-content {
+            padding: 70px 0;
+        }
+
+        .availability {
             display: inline-flex;
             align-items: center;
             gap: 9px;
 
-            padding: 8px 14px;
+            padding: 7px 14px;
+
+            margin-bottom: 22px;
+
             border-radius: 999px;
 
-            background: rgba(56,189,248,.07);
-            border: 1px solid rgba(56,189,248,.18);
+            border: 1px solid rgba(24,168,255,.38);
 
-            color: var(--accent);
-            font-size: .82rem;
+            background: rgba(20,150,255,.06);
+
+            color: #bdeaff;
+
+            font-size: .75rem;
             font-weight: 600;
-
-            margin-bottom: 24px;
         }
 
-        .status-dot {
+        .availability-dot {
             width: 8px;
             height: 8px;
-            background: var(--green);
+
             border-radius: 50%;
-            box-shadow: 0 0 12px var(--green);
+
+            background: #00dc7a;
+
+            box-shadow: 0 0 12px #00dc7a;
         }
 
         .hero h1 {
             font-family: "Space Grotesk", sans-serif;
-            font-size: clamp(3.2rem, 7vw, 5.8rem);
+
+            font-size: clamp(
+                3.2rem,
+                6vw,
+                5.7rem
+            );
+
             line-height: .98;
+
             letter-spacing: -4px;
-            margin-bottom: 25px;
+
+            margin-bottom: 24px;
         }
 
-        .gradient-text {
-            background: linear-gradient(
-                100deg,
-                #fff,
-                var(--accent),
-                var(--accent2)
-            );
+        .hero h1 .hello {
+            display: block;
+
+            font-size: .58em;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 7px;
+        }
+
+        .gradient {
+            background:
+                linear-gradient(
+                    100deg,
+                    #ffffff 0%,
+                    #ffffff 30%,
+                    #18a8ff 62%,
+                    #7377ff 100%
+                );
 
             -webkit-background-clip: text;
             background-clip: text;
+
             color: transparent;
         }
 
         .hero-description {
+            max-width: 570px;
+
             color: var(--muted);
-            font-size: 1.08rem;
-            max-width: 650px;
-            margin-bottom: 32px;
+
+            font-size: 1rem;
+
+            line-height: 1.8;
+
+            margin-bottom: 28px;
         }
 
         .hero-buttons {
             display: flex;
-            gap: 13px;
             flex-wrap: wrap;
+
+            gap: 12px;
+
+            margin-bottom: 24px;
         }
 
         .btn {
             display: inline-flex;
-            justify-content: center;
             align-items: center;
+            justify-content: center;
+
             gap: 9px;
 
-            padding: 13px 22px;
-            border-radius: 12px;
+            min-height: 44px;
 
+            padding: 11px 20px;
+
+            border-radius: 999px;
+
+            font-size: .84rem;
             font-weight: 700;
-            font-size: .92rem;
 
-            transition: var(--transition);
             cursor: pointer;
+
+            transition: .3s ease;
         }
 
         .btn-primary {
-            background: linear-gradient(135deg, var(--accent), var(--accent2));
-            color: #06101c;
-            box-shadow: 0 10px 35px rgba(56,189,248,.18);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 45px rgba(56,189,248,.28);
-        }
-
-        .btn-secondary {
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,.025);
-            color: var(--text);
-        }
-
-        .btn-secondary:hover {
-            border-color: rgba(56,189,248,.4);
-            background: rgba(56,189,248,.06);
-            transform: translateY(-3px);
-        }
-
-        /* PROFILE */
-
-        .profile-wrapper {
-            display: flex;
-            justify-content: center;
-        }
-
-        .profile-card {
-            width: 310px;
-            height: 370px;
-
-            padding: 12px;
-
-            border-radius: 30px;
-
-            background:
-                linear-gradient(145deg,
-                rgba(56,189,248,.25),
-                rgba(129,140,248,.06));
-
-            border: 1px solid rgba(255,255,255,.10);
-
-            box-shadow:
-                0 30px 80px rgba(0,0,0,.35);
-
-            transform: rotate(3deg);
-            transition: .5s ease;
-        }
-
-        .profile-card:hover {
-            transform: rotate(0deg) translateY(-8px);
-        }
-
-        .profile-inner {
-            width: 100%;
-            height: 100%;
-
-            border-radius: 22px;
-            overflow: hidden;
-
-            background: var(--card-solid);
-            position: relative;
-        }
-
-        .profile-inner img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        .profile-overlay {
-            position: absolute;
-            left: 0;
-            right: 0;
-            bottom: 0;
-
-            padding: 50px 22px 22px;
-
-            background: linear-gradient(
-                transparent,
-                rgba(3,7,18,.95)
-            );
-        }
-
-        .profile-overlay h3 {
-            font-family: "Space Grotesk";
-            font-size: 1.3rem;
-        }
-
-        .profile-overlay p {
-            color: var(--accent);
-            font-size: .85rem;
-        }
-
-        /* =========================
-           SECTIONS
-        ========================= */
-
-        section {
-            padding: 110px 0;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 55px;
-        }
-
-        .section-label {
-            color: var(--accent);
-            font-size: .78rem;
-            font-weight: 800;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            margin-bottom: 10px;
-        }
-
-        .section-heading h2 {
-            font-family: "Space Grotesk";
-            font-size: clamp(2.2rem, 5vw, 3.3rem);
-            letter-spacing: -2px;
-        }
-
-        .section-heading p {
-            color: var(--muted);
-            max-width: 600px;
-            margin: 12px auto 0;
-        }
-
-        /* =========================
-           ABOUT
-        ========================= */
-
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 25px;
-        }
-
-        .glass-card {
-            background: var(--card);
-            border: 1px solid var(--border);
-            border-radius: var(--radius);
-            padding: 32px;
-
-            backdrop-filter: blur(15px);
-            -webkit-backdrop-filter: blur(15px);
-
-            transition: var(--transition);
-        }
-
-        .glass-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(56,189,248,.22);
-        }
-
-        .about-main p {
-            color: var(--muted);
-            margin-bottom: 15px;
-        }
-
-        .about-main strong {
-            color: var(--text);
-        }
-
-        .quick-info {
-            display: grid;
-            gap: 16px;
-        }
-
-        .info-row {
-            display: flex;
-            justify-content: space-between;
-            gap: 20px;
-
-            padding-bottom: 15px;
-            border-bottom: 1px solid var(--border);
-        }
-
-        .info-row:last-child {
-            border-bottom: 0;
-            padding-bottom: 0;
-        }
-
-        .info-row span:first-child {
-            color: var(--muted);
-        }
-
-        .info-row span:last-child {
-            color: var(--text);
-            font-weight: 600;
-            text-align: right;
-        }
-
-        /* =========================
-           PROJECTS
-        ========================= */
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 22px;
-        }
-
-        .project-card {
-            min-height: 300px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .project-number {
-            color: rgba(148,163,184,.25);
-            font-family: "Space Grotesk";
-            font-size: 2rem;
-            font-weight: 700;
-        }
-
-        .project-icon {
-            font-size: 2.5rem;
-            margin: 18px 0;
-        }
-
-        .project-card h3 {
-            font-family: "Space Grotesk";
-            font-size: 1.35rem;
-            margin-bottom: 10px;
-        }
-
-        .project-card p {
-            color: var(--muted);
-            font-size: .92rem;
-        }
-
-        .project-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 7px;
-            margin-top: 20px;
-        }
-
-        .tag {
-            font-size: .72rem;
-            color: var(--accent);
-            padding: 5px 9px;
-            border-radius: 7px;
-            background: rgba(56,189,248,.07);
-            border: 1px solid rgba(56,189,248,.12);
-        }
-
-        /* =========================
-           SKILLS
-        ========================= */
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(5, 1fr);
-            gap: 16px;
-        }
-
-        .skill-card {
-            text-align: center;
-            padding: 28px 15px;
-        }
-
-        .skill-icon {
-            width: 65px;
-            height: 65px;
-
-            margin: 0 auto 16px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            border-radius: 18px;
-
-            background: linear-gradient(
-                145deg,
-                rgba(56,189,248,.12),
-                rgba(129,140,248,.08)
-            );
-
-            border: 1px solid rgba(56,189,248,.12);
-
-            font-size: 1.7rem;
-        }
-
-        .skill-card h3 {
-            font-size: .9rem;
-            margin-bottom: 5px;
-        }
-
-        .skill-card p {
-            color: var(--muted);
-            font-size: .75rem;
-        }
-
-        /* =========================
-           RESUME CTA
-        ========================= */
-
-        .resume-box {
-            position: relative;
-            overflow: hidden;
-            text-align: center;
-
-            padding: 65px 30px;
-
-            border-radius: 28px;
+            color: #fff;
 
             background:
                 linear-gradient(
                     135deg,
-                    rgba(56,189,248,.10),
-                    rgba(129,140,248,.10)
+                    #12a7ff,
+                    #2879ff
                 );
 
-            border: 1px solid rgba(56,189,248,.18);
+            box-shadow:
+                0 10px 35px rgba(0, 145, 255, .20);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+
+            box-shadow:
+                0 15px 45px rgba(0, 145, 255, .35);
+        }
+
+        .btn-secondary {
+            color: #e6edf7;
+
+            border: 1px solid rgba(80,170,255,.45);
+
+            background: rgba(255,255,255,.025);
+        }
+
+        .btn-secondary:hover {
+            transform: translateY(-3px);
+
+            border-color: var(--blue-light);
+
+            background: rgba(20,150,255,.07);
+        }
+
+        .hero-socials {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .hero-socials a {
+            color: #bac7d8;
+
+            font-size: .82rem;
+            font-weight: 600;
+
+            transition: .25s ease;
+        }
+
+        .hero-socials a:hover {
+            color: var(--blue-light);
+        }
+
+
+        /* =========================================================
+           HERO PHOTO
+        ========================================================= */
+
+        .hero-photo {
+            min-height: 570px;
+
+            position: relative;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+        }
+
+        .photo-glow {
+            position: absolute;
+
+            width: 430px;
+            height: 430px;
+
+            border-radius: 50%;
+
+            background: rgba(0, 136, 255, .17);
+
+            filter: blur(80px);
+        }
+
+        .photo-frame {
+            position: relative;
+
+            width: min(470px, 100%);
+            height: 560px;
+
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+
+            overflow: hidden;
+        }
+
+        .photo-frame::before {
+            content: "";
+
+            position: absolute;
+
+            width: 330px;
+            height: 430px;
+
+            top: 50px;
+
+            border: 2px solid rgba(0, 153, 255, .85);
+
+            border-radius: 30px;
+
+            transform: rotate(-7deg);
+
+            box-shadow:
+                0 0 30px rgba(0,153,255,.20),
+                inset 0 0 30px rgba(0,153,255,.04);
+        }
+
+        .photo-frame::after {
+            content: "";
+
+            position: absolute;
+
+            width: 330px;
+            height: 430px;
+
+            top: 70px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(0,120,255,.10),
+                    transparent 55%
+                );
+
+            border-radius: 30px;
+
+            transform: rotate(7deg);
+
+            border: 1px solid rgba(60,120,255,.15);
+        }
+
+        .profile-image {
+            position: relative;
+
+            z-index: 2;
+
+            width: 440px;
+            height: 540px;
+
+            object-fit: cover;
+
+            object-position: center top;
+
+            filter:
+                contrast(1.03)
+                saturate(.95);
+
+            mask-image:
+                linear-gradient(
+                    to bottom,
+                    black 80%,
+                    transparent 100%
+                );
+        }
+
+        .code-note {
+            position: absolute;
+
+            right: -5px;
+            top: 145px;
+
+            z-index: 4;
+
+            color: #42baff;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 1.15rem;
+
+            line-height: 1.25;
+
+            transform: rotate(-5deg);
+
+            text-shadow:
+                0 0 20px rgba(0,153,255,.5);
+        }
+
+        .code-note::after {
+            content: "";
+
+            display: block;
+
+            width: 65px;
+            height: 2px;
+
+            margin-top: 10px;
+
+            background: var(--blue-light);
+
+            transform: rotate(-12deg);
+        }
+
+
+        /* =========================================================
+           SECTIONS
+        ========================================================= */
+
+        section {
+            padding: 95px 0;
+        }
+
+        .section-header {
+            margin-bottom: 40px;
+        }
+
+        .section-label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            color: #24adff;
+
+            font-size: .68rem;
+            font-weight: 800;
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+
+            margin-bottom: 8px;
+        }
+
+        .section-label::before {
+            content: "";
+
+            width: 5px;
+            height: 5px;
+
+            border-radius: 50%;
+
+            background: var(--blue-light);
+
+            box-shadow:
+                0 0 10px var(--blue-light);
+        }
+
+        .section-title {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: clamp(
+                2rem,
+                4vw,
+                3rem
+            );
+
+            letter-spacing: -2px;
+
+            line-height: 1.05;
+        }
+
+        .section-subtitle {
+            color: var(--muted);
+
+            max-width: 600px;
+
+            margin-top: 10px;
+
+            font-size: .9rem;
+        }
+
+
+        /* =========================================================
+           ABOUT
+        ========================================================= */
+
+        .about-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 25px;
+        }
+
+        .about-text {
+            padding-right: 30px;
+        }
+
+        .about-text p {
+            color: #a7b6ca;
+
+            font-size: .88rem;
+
+            line-height: 1.9;
+
+            margin-bottom: 15px;
+        }
+
+        .about-text strong {
+            color: white;
+        }
+
+        .info-card {
+            padding: 30px;
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(9,28,52,.82),
+                    rgba(5,16,32,.72)
+                );
+
+            border: 1px solid var(--border);
+
+            box-shadow:
+                inset 0 1px 0 rgba(255,255,255,.025);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .info-title {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+
+            margin-bottom: 22px;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 1rem;
+        }
+
+        .info-title-icon {
+            width: 32px;
+            height: 32px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 9px;
+
+            background: rgba(20,160,255,.10);
+
+            color: var(--blue-light);
+        }
+
+        .info-row {
+            display: grid;
+
+            grid-template-columns: 1fr 1.35fr;
+
+            gap: 15px;
+
+            padding: 14px 0;
+
+            border-bottom: 1px solid rgba(100,160,220,.14);
+
+            font-size: .8rem;
+        }
+
+        .info-row:last-child {
+            border-bottom: 0;
+        }
+
+        .info-label {
+            color: #91a3ba;
+        }
+
+        .info-value {
+            color: #eef5ff;
+            font-weight: 600;
+        }
+
+
+        /* =========================================================
+           PROJECTS
+        ========================================================= */
+
+        .projects-heading {
+            display: flex;
+
+            align-items: end;
+            justify-content: space-between;
+
+            gap: 20px;
+        }
+
+        .view-all {
+            padding: 9px 15px;
+
+            border: 1px solid rgba(20,160,255,.45);
+
+            border-radius: 999px;
+
+            color: #40baff;
+
+            font-size: .72rem;
+            font-weight: 600;
+
+            white-space: nowrap;
+
+            transition: .25s ease;
+        }
+
+        .view-all:hover {
+            background: rgba(20,160,255,.08);
+            transform: translateY(-2px);
+        }
+
+        .projects-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 18px;
+        }
+
+        .project-card {
+            min-height: 330px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding: 24px;
+
+            border-radius: var(--radius);
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(9,25,47,.82),
+                    rgba(5,15,29,.72)
+                );
+
+            border: 1px solid rgba(75,150,230,.20);
+
+            transition: .35s ease;
+
+            position: relative;
+
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: "";
+
+            position: absolute;
+
+            width: 150px;
+            height: 150px;
+
+            right: -80px;
+            top: -80px;
+
+            border-radius: 50%;
+
+            background: rgba(20,150,255,.10);
+
+            filter: blur(30px);
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+
+            border-color:
+                rgba(40,180,255,.48);
+
+            box-shadow:
+                0 20px 50px rgba(0,0,0,.28);
+        }
+
+        .project-top {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .project-number {
+            color: #4c89c8;
+
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+
+        .project-icon {
+            width: 52px;
+            height: 52px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 12px;
+
+            font-size: 1.55rem;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(30,150,255,.30),
+                    rgba(75,80,255,.18)
+                );
+
+            border: 1px solid rgba(60,150,255,.25);
+
+            margin: 25px 0 17px;
+        }
+
+        .project-card h3 {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 1.05rem;
+
+            margin-bottom: 8px;
+        }
+
+        .project-card p {
+            color: #94a7bf;
+
+            font-size: .78rem;
+
+            line-height: 1.7;
+        }
+
+        .project-tags {
+            display: flex;
+
+            flex-wrap: wrap;
+
+            gap: 7px;
+
+            margin-top: 18px;
+        }
+
+        .tag {
+            padding: 4px 9px;
+
+            border-radius: 7px;
+
+            border: 1px solid rgba(25,160,255,.23);
+
+            background: rgba(20,150,255,.06);
+
+            color: #3cb7ff;
+
+            font-size: .64rem;
+        }
+
+        .project-bottom {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: 22px;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 15px;
+        }
+
+        .project-link {
+            color: #b8c8dc;
+
+            font-size: .72rem;
+            font-weight: 600;
+
+            transition: .2s ease;
+        }
+
+        .project-link:hover {
+            color: var(--blue-light);
+        }
+
+        .arrow-btn {
+            width: 30px;
+            height: 30px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 50%;
+
+            border: 1px solid rgba(60,150,255,.25);
+
+            color: #a9c8e8;
+
+            transition: .25s ease;
+        }
+
+        .arrow-btn:hover {
+            background: rgba(20,150,255,.10);
+            transform: translateX(3px);
+        }
+
+
+        /* =========================================================
+           SKILLS
+        ========================================================= */
+
+        .skills-layout {
+            display: grid;
+
+            grid-template-columns: .85fr 2fr;
+
+            gap: 40px;
+
+            align-items: start;
+        }
+
+        .skills-grid {
+            display: grid;
+
+            grid-template-columns:
+                repeat(5, 1fr);
+
+            gap: 12px;
+        }
+
+        .skill-card {
+            min-height: 145px;
+
+            padding: 20px 10px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            border-radius: 13px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(12,28,54,.80),
+                    rgba(7,17,34,.72)
+                );
+
+            border: 1px solid rgba(80,150,230,.19);
+
+            transition: .3s ease;
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+
+            border-color:
+                rgba(30,170,255,.45);
+        }
+
+        .skill-icon {
+            width: 55px;
+            height: 55px;
+
+            display: grid;
+            place-items: center;
+
+            margin-bottom: 12px;
+
+            border-radius: 14px;
+
+            font-size: 1.65rem;
+
+            background:
+                rgba(20,150,255,.08);
+
+            border: 1px solid rgba(40,160,255,.16);
+        }
+
+        .skill-card h3 {
+            font-size: .72rem;
+
+            margin-bottom: 3px;
+        }
+
+        .skill-card p {
+            color: #8498b1;
+
+            font-size: .57rem;
+        }
+
+
+        /* =========================================================
+           RESUME
+        ========================================================= */
+
+        .resume-section {
+            padding-top: 20px;
+        }
+
+        .resume-box {
+            position: relative;
+
+            overflow: hidden;
+
+            display: flex;
+
+            align-items: center;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            padding: 34px 38px;
+
+            border-radius: 16px;
+
+            border: 1px solid rgba(40,180,255,.40);
+
+            background:
+                linear-gradient(
+                    105deg,
+                    rgba(0,101,200,.22),
+                    rgba(72,68,220,.30)
+                );
+
+            box-shadow:
+                0 20px 60px rgba(0,0,0,.20);
         }
 
         .resume-box::before {
             content: "";
+
             position: absolute;
+
             width: 250px;
             height: 250px;
-            background: var(--accent);
-            filter: blur(100px);
-            opacity: .08;
-            top: -150px;
-            left: 50%;
+
+            right: 40px;
+            top: -160px;
+
+            border-radius: 50%;
+
+            background: #248cff;
+
+            filter: blur(90px);
+
+            opacity: .13;
         }
 
-        .resume-box h2 {
-            font-family: "Space Grotesk";
-            font-size: 2.5rem;
-            margin-bottom: 10px;
+        .resume-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .resume-box p {
-            color: var(--muted);
-            margin-bottom: 25px;
+        .resume-content .section-label {
+            margin-bottom: 5px;
         }
 
-        /* =========================
+        .resume-content h2 {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 1.65rem;
+
+            margin-bottom: 5px;
+        }
+
+        .resume-content p {
+            color: #afc0d5;
+
+            font-size: .78rem;
+        }
+
+        .resume-btn {
+            position: relative;
+            z-index: 1;
+
+            white-space: nowrap;
+        }
+
+
+        /* =========================================================
            CONTACT
-        ========================= */
+        ========================================================= */
 
-        .contact-wrapper {
-            max-width: 700px;
-            margin: auto;
+        .contact-section {
+            padding-bottom: 65px;
         }
 
-        .contact-form {
+        .contact-grid {
             display: grid;
-            gap: 18px;
+
+            grid-template-columns: .75fr 1.25fr;
+
+            gap: 50px;
+
+            align-items: start;
+        }
+
+        .contact-info h2 {
+            font-family: "Space Grotesk", sans-serif;
+
+            font-size: 2.5rem;
+
+            line-height: 1.1;
+
+            letter-spacing: -2px;
+
+            margin-bottom: 13px;
+        }
+
+        .contact-info h2 span {
+            color: var(--blue-light);
+        }
+
+        .contact-info > p {
+            color: #91a5bd;
+
+            font-size: .82rem;
+
+            max-width: 350px;
+
+            margin-bottom: 22px;
+        }
+
+        .contact-details {
+            display: grid;
+
+            gap: 10px;
+        }
+
+        .contact-detail {
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #b8c6d8;
+
+            font-size: .76rem;
+        }
+
+        .contact-icon {
+            width: 31px;
+            height: 31px;
+
+            display: grid;
+            place-items: center;
+
+            border-radius: 8px;
+
+            border: 1px solid rgba(50,150,255,.20);
+
+            color: var(--blue-light);
+        }
+
+        .contact-form-card {
+            padding: 25px;
+
+            border-radius: 16px;
+
+            border: 1px solid rgba(70,150,230,.20);
+
+            background:
+                rgba(8,23,44,.65);
+
+            backdrop-filter: blur(15px);
+        }
+
+        .form-grid {
+            display: grid;
+
+            grid-template-columns: 1fr 1fr;
+
+            gap: 14px;
+        }
+
+        .form-group {
+            margin-bottom: 14px;
+        }
+
+        .form-group.full {
+            grid-column: 1 / -1;
         }
 
         .form-group label {
             display: block;
-            margin-bottom: 7px;
-            font-size: .85rem;
+
+            color: #cbd7e6;
+
+            font-size: .67rem;
             font-weight: 600;
+
+            margin-bottom: 6px;
         }
 
         .form-group input,
         .form-group textarea {
             width: 100%;
-            padding: 14px 15px;
-
-            border-radius: 11px;
-            border: 1px solid var(--border);
 
             outline: none;
 
-            background: rgba(7,11,20,.65);
-            color: var(--text);
+            padding: 11px 12px;
 
-            transition: var(--transition);
+            color: white;
+
+            background:
+                rgba(4,12,25,.72);
+
+            border: 1px solid rgba(80,150,220,.17);
+
+            border-radius: 7px;
+
+            font-size: .72rem;
+
+            transition: .25s ease;
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #647891;
         }
 
         .form-group input:focus,
         .form-group textarea:focus {
-            border-color: rgba(56,189,248,.5);
-            box-shadow: 0 0 0 3px rgba(56,189,248,.06);
+            border-color:
+                rgba(30,170,255,.55);
+
+            box-shadow:
+                0 0 0 3px rgba(20,150,255,.06);
         }
 
         textarea {
             resize: vertical;
-            min-height: 140px;
+
+            min-height: 100px;
         }
 
-        /* =========================
-           SOCIAL
-        ========================= */
+        .send-btn {
+            width: 170px;
+        }
 
-        .socials {
+
+        /* =========================================================
+           SOCIAL SIDEBAR
+        ========================================================= */
+
+        .social-sidebar {
             display: flex;
-            justify-content: center;
-            gap: 12px;
-            margin-top: 28px;
+
+            flex-direction: column;
+
+            gap: 10px;
+
+            margin-left: auto;
+
+            width: fit-content;
         }
 
-        .social {
-            width: 44px;
-            height: 44px;
+        .social-sidebar a {
+            width: 43px;
+            height: 43px;
 
-            display: flex;
-            align-items: center;
-            justify-content: center;
+            display: grid;
+            place-items: center;
 
-            border-radius: 12px;
+            border-radius: 9px;
 
-            border: 1px solid var(--border);
-            background: rgba(255,255,255,.025);
+            border: 1px solid rgba(70,150,230,.22);
 
-            color: var(--muted);
+            background: rgba(10,25,45,.55);
 
-            transition: var(--transition);
+            color: #b9cbe0;
+
+            transition: .25s ease;
         }
 
-        .social:hover {
-            color: var(--accent);
-            border-color: rgba(56,189,248,.35);
-            transform: translateY(-4px);
+        .social-sidebar a:hover {
+            color: var(--blue-light);
+
+            border-color:
+                rgba(30,170,255,.55);
+
+            transform: translateY(-3px);
         }
 
-        /* =========================
+
+        /* =========================================================
            FOOTER
-        ========================= */
+        ========================================================= */
 
         footer {
-            border-top: 1px solid var(--border);
-            padding: 35px 0;
-            text-align: center;
-            color: var(--muted);
-            font-size: .85rem;
+            border-top: 1px solid rgba(90,150,220,.14);
+
+            padding: 24px 0;
+
+            color: #788ca5;
+
+            font-size: .67rem;
+        }
+
+        .footer-inner {
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
         }
 
         footer strong {
-            color: var(--text);
+            color: #d6e0ec;
         }
 
-        /* =========================
-           ANIMATION
-        ========================= */
+        .back-top {
+            color: #41b8ff;
+
+            transition: .2s ease;
+        }
+
+        .back-top:hover {
+            transform: translateY(-2px);
+        }
+
+
+        /* =========================================================
+           SCROLL REVEAL
+        ========================================================= */
 
         .reveal {
             opacity: 0;
-            transform: translateY(25px);
-            animation: reveal .8s forwards;
+
+            transform: translateY(30px);
+
+            transition:
+                opacity .8s ease,
+                transform .8s ease;
         }
 
-        @keyframes reveal {
-            to {
-                opacity: 1;
-                transform: translateY(0);
+        .reveal.show {
+            opacity: 1;
+
+            transform: translateY(0);
+        }
+
+
+        /* =========================================================
+           MOBILE MENU
+        ========================================================= */
+
+        .mobile-menu {
+            display: none;
+
+            position: fixed;
+
+            top: 70px;
+            left: 0;
+            right: 0;
+
+            z-index: 9998;
+
+            padding: 20px;
+
+            background:
+                rgba(4,10,22,.97);
+
+            border-bottom:
+                1px solid rgba(80,150,230,.18);
+
+            backdrop-filter: blur(20px);
+        }
+
+        .mobile-menu.active {
+            display: block;
+        }
+
+        .mobile-menu a {
+            display: block;
+
+            padding: 13px;
+
+            color: #c6d3e4;
+
+            border-bottom:
+                1px solid rgba(100,150,220,.08);
+        }
+
+
+        /* =========================================================
+           RESPONSIVE
+        ========================================================= */
+
+        @media (max-width: 1000px) {
+
+            .nav-links {
+                gap: 16px;
+            }
+
+            .nav-socials {
+                display: none;
+            }
+
+            .hero-grid {
+                gap: 20px;
+            }
+
+            .hero h1 {
+                font-size: 4.5rem;
+            }
+
+            .skills-grid {
+                grid-template-columns:
+                    repeat(3, 1fr);
             }
         }
 
-        /* =========================
-           MOBILE
-        ========================= */
 
-        @media (max-width: 900px) {
+        @media (max-width: 850px) {
 
-            .hero-grid,
-            .about-grid {
+            .nav-links {
+                display: none;
+            }
+
+            .menu-btn {
+                display: block;
+            }
+
+            .hero-grid {
                 grid-template-columns: 1fr;
+
+                text-align: center;
             }
 
             .hero-content {
-                text-align: center;
+                padding-bottom: 20px;
             }
 
             .hero-description {
@@ -744,41 +1609,110 @@
                 justify-content: center;
             }
 
-            .profile-wrapper {
-                order: -1;
+            .hero-socials {
+                justify-content: center;
             }
 
-            .profile-card {
-                width: 250px;
-                height: 300px;
+            .hero-photo {
+                min-height: 480px;
+            }
+
+            .photo-frame {
+                height: 470px;
+            }
+
+            .profile-image {
+                width: 390px;
+                height: 460px;
+            }
+
+            .code-note {
+                right: 5%;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
             }
 
             .projects-grid {
-                grid-template-columns: 1fr 1fr;
+                grid-template-columns:
+                    repeat(2, 1fr);
+            }
+
+            .skills-layout {
+                grid-template-columns: 1fr;
             }
 
             .skills-grid {
-                grid-template-columns: repeat(3, 1fr);
+                grid-template-columns:
+                    repeat(5, 1fr);
+            }
+
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .social-sidebar {
+                flex-direction: row;
+
+                margin-left: 0;
             }
         }
 
-        @media (max-width: 650px) {
 
-            .nav-links {
-                display: none;
-            }
-
-            .nav-cta {
-                display: block;
-            }
+        @media (max-width: 600px) {
 
             section {
-                padding: 80px 0;
+                padding: 75px 0;
+            }
+
+            .container {
+                width: min(92%, 500px);
+            }
+
+            .hero {
+                padding-top: 70px;
             }
 
             .hero h1 {
-                font-size: 3.2rem;
-                letter-spacing: -2px;
+                font-size: 3.25rem;
+
+                letter-spacing: -2.5px;
+            }
+
+            .hero-description {
+                font-size: .88rem;
+            }
+
+            .hero-photo {
+                min-height: 400px;
+            }
+
+            .photo-frame {
+                height: 390px;
+            }
+
+            .profile-image {
+                width: 330px;
+                height: 390px;
+            }
+
+            .photo-frame::before,
+            .photo-frame::after {
+                width: 260px;
+                height: 330px;
+            }
+
+            .code-note {
+                right: 0;
+                top: 90px;
+
+                font-size: .9rem;
+            }
+
+            .projects-heading {
+                align-items: start;
+                flex-direction: column;
             }
 
             .projects-grid {
@@ -786,54 +1720,189 @@
             }
 
             .skills-grid {
-                grid-template-columns: repeat(2, 1fr);
+                grid-template-columns:
+                    repeat(2, 1fr);
             }
 
-            .glass-card {
-                padding: 24px;
+            .resume-box {
+                flex-direction: column;
+
+                align-items: flex-start;
+
+                padding: 28px 24px;
             }
 
-            .resume-box h2 {
-                font-size: 2rem;
+            .contact-info h2 {
+                font-size: 2.1rem;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-group.full {
+                grid-column: auto;
+            }
+
+            .send-btn {
+                width: 100%;
+            }
+
+            .footer-inner {
+                flex-direction: column;
+
+                gap: 10px;
+
+                text-align: center;
             }
         }
+
+
+        @media (max-width: 380px) {
+
+            .hero h1 {
+                font-size: 2.75rem;
+            }
+
+            .btn {
+                width: 100%;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
     </style>
 </head>
 
-<body>
 
-    <div class="orb one"></div>
-    <div class="orb two"></div>
+<body id="top">
 
-    <!-- ================= NAVBAR ================= -->
+    <!-- Background -->
+    <div class="grid-bg"></div>
+    <div class="glow one"></div>
+    <div class="glow two"></div>
+
+
+    <!-- =========================================================
+         NAVBAR
+    ========================================================== -->
 
     <nav>
-        <div class="container nav-content">
+
+        <div class="container nav-inner">
 
             <a href="#home" class="logo">
                 ADITYA<span>.</span>
             </a>
 
             <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+
                 <li>
-                    <a href="resumeadi.pdf"
-                       target="_blank"
-                       rel="noopener"
-                       class="nav-cta">
-                        View Resume
+                    <a href="#home" class="active">Home</a>
+                </li>
+
+                <li>
+                    <a href="#about">About</a>
+                </li>
+
+                <li>
+                    <a href="#projects">Projects</a>
+                </li>
+
+                <li>
+                    <a href="#skills">Skills</a>
+                </li>
+
+                <li>
+                    <a href="#resume">Resume</a>
+                </li>
+
+                <li>
+                    <a href="#contact">Contact</a>
+                </li>
+
+                <li>
+                    <a
+                        href="./resumeadi.pdf"
+                        target="_blank"
+                        rel="noopener"
+                        class="nav-resume"
+                    >
+                        📄 View Resume
                     </a>
                 </li>
+
             </ul>
 
+
+            <div class="nav-socials">
+
+                <!-- CHANGE THESE LINKS -->
+
+                <a
+                    href="https://github.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="nav-social"
+                    aria-label="GitHub"
+                >
+                    ◉
+                </a>
+
+                <a
+                    href="https://www.linkedin.com/"
+                    target="_blank"
+                    rel="noopener"
+                    class="nav-social"
+                    aria-label="LinkedIn"
+                >
+                    in
+                </a>
+
+            </div>
+
+
+            <button
+                class="menu-btn"
+                id="menuBtn"
+                aria-label="Open menu"
+            >
+                ☰
+            </button>
+
         </div>
+
     </nav>
 
 
-    <!-- ================= HERO ================= -->
+    <!-- Mobile menu -->
+
+    <div class="mobile-menu" id="mobileMenu">
+
+        <a href="#home">Home</a>
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#skills">Skills</a>
+        <a href="#resume">Resume</a>
+        <a href="#contact">Contact</a>
+
+        <a
+            href="./resumeadi.pdf"
+            target="_blank"
+            rel="noopener"
+        >
+            📄 View Resume
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================================================
+         HERO
+    ========================================================== -->
 
     <main id="home">
 
@@ -841,39 +1910,87 @@
 
             <div class="container hero-grid">
 
+
                 <div class="hero-content reveal">
 
-                    <div class="badge">
-                        <span class="status-dot"></span>
+                    <div class="availability">
+
+                        <span class="availability-dot"></span>
+
                         Available for opportunities
+
                     </div>
 
+
                     <h1>
-                        Hi, I'm
-                        <span class="gradient-text">
+
+                        <span class="hello">
+                            Hi, I'm
+                        </span>
+
+                        <span class="gradient">
                             Aditya Warsh
                         </span>
+
                     </h1>
 
+
                     <p class="hero-description">
-                        I'm a passionate developer who loves turning ideas
-                        into modern, functional and beautiful digital
-                        experiences.
+
+                        I'm a passionate developer who loves turning
+                        ideas into modern, functional and beautiful
+                        digital experiences.
+
                     </p>
+
 
                     <div class="hero-buttons">
 
-                        <a href="#projects"
-                           class="btn btn-primary">
-                            Explore My Work →
+                        <a
+                            href="#projects"
+                            class="btn btn-primary"
+                        >
+                            Explore My Work
+                            →
                         </a>
 
-                        <!-- VIEW RESUME -->
-                        <a href="resumeadi.pdf"
-                           target="_blank"
-                           rel="noopener"
-                           class="btn btn-secondary">
+
+                        <a
+                            href="./resumeadi.pdf"
+                            target="_blank"
+                            rel="noopener"
+                            class="btn btn-secondary"
+                        >
                             📄 View Resume
+                        </a>
+
+                    </div>
+
+
+                    <div class="hero-socials">
+
+                        <!-- CHANGE THESE LINKS -->
+
+                        <a
+                            href="https://github.com/"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            ◉ GitHub
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/"
+                            target="_blank"
+                            rel="noopener"
+                        >
+                            in LinkedIn
+                        </a>
+
+                        <a
+                            href="mailto:your@email.com"
+                        >
+                            ✉ Email
                         </a>
 
                     </div>
@@ -881,26 +1998,32 @@
                 </div>
 
 
-                <div class="profile-wrapper reveal">
 
-                    <div class="profile-card">
+                <!-- PHOTO -->
 
-                        <div class="profile-inner">
+                <div class="hero-photo reveal">
 
-                            <img src="aditya.jpeg"
-                                 alt="Aditya Warsh">
+                    <div class="photo-glow"></div>
 
-                            <div class="profile-overlay">
+                    <div class="photo-frame">
 
-                                <h3>Aditya Warsh</h3>
+                        <!-- IMPORTANT:
+                             Upload your photo as aditya.jpeg -->
 
-                                <p>
-                                    Developer • Coder • Creator
-                                </p>
+                        <img
+                            src="./aditya.jpeg"
+                            alt="Aditya Warsh"
+                            class="profile-image"
+                        >
 
-                            </div>
+                    </div>
 
-                        </div>
+
+                    <div class="code-note">
+
+                        Code<br>
+                        Build<br>
+                        Create
 
                     </div>
 
@@ -911,36 +2034,44 @@
         </section>
 
 
-        <!-- ================= ABOUT ================= -->
+
+        <!-- =====================================================
+             ABOUT
+        ====================================================== -->
 
         <section id="about">
 
             <div class="container">
 
-                <div class="section-heading">
-
-                    <div class="section-label">
-                        About Me
-                    </div>
-
-                    <h2>
-                        Building with curiosity.
-                    </h2>
-
-                    <p>
-                        A little introduction about who I am
-                        and what I love creating.
-                    </p>
-
-                </div>
-
-
                 <div class="about-grid">
 
-                    <div class="glass-card about-main">
+
+                    <div class="about-text reveal">
+
+                        <div class="section-header">
+
+                            <div class="section-label">
+                                About Me
+                            </div>
+
+                            <h2 class="section-title">
+                                Building with
+                                <span class="gradient">
+                                    curiosity.
+                                </span>
+                            </h2>
+
+                            <p class="section-subtitle">
+                                A little introduction about who I am
+                                and what I love creating.
+                            </p>
+
+                        </div>
+
 
                         <p>
-                            Hi, I'm <strong>Aditya Warsh</strong>.
+                            Hi, I'm
+                            <strong>Aditya Warsh</strong>.
                             I'm a passionate coder and web developer
                             who enjoys building projects that solve
                             real-world problems.
@@ -961,26 +2092,69 @@
                     </div>
 
 
-                    <div class="glass-card quick-info">
 
-                        <div class="info-row">
-                            <span>Role</span>
-                            <span>Web Developer</span>
+                    <div class="info-card reveal">
+
+                        <div class="info-title">
+
+                            <div class="info-title-icon">
+                                ♙
+                            </div>
+
+                            Quick Info
+
                         </div>
 
-                        <div class="info-row">
-                            <span>Focus</span>
-                            <span>Web & Software</span>
-                        </div>
 
                         <div class="info-row">
-                            <span>Languages</span>
-                            <span>HTML • CSS • JS • Python • C</span>
+
+                            <span class="info-label">
+                                Role
+                            </span>
+
+                            <span class="info-value">
+                                Web Developer
+                            </span>
+
                         </div>
 
+
                         <div class="info-row">
-                            <span>Currently</span>
-                            <span>Learning & Building</span>
+
+                            <span class="info-label">
+                                Focus
+                            </span>
+
+                            <span class="info-value">
+                                Web & Software
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Languages
+                            </span>
+
+                            <span class="info-value">
+                                HTML • CSS • JS • Python • C
+                            </span>
+
+                        </div>
+
+
+                        <div class="info-row">
+
+                            <span class="info-label">
+                                Currently
+                            </span>
+
+                            <span class="info-value">
+                                Learning & Building
+                            </span>
+
                         </div>
 
                     </div>
@@ -992,131 +2166,303 @@
         </section>
 
 
-        <!-- ================= PROJECTS ================= -->
+
+        <!-- =====================================================
+             PROJECTS
+        ====================================================== -->
 
         <section id="projects">
 
             <div class="container">
 
-                <div class="section-heading">
 
-                    <div class="section-label">
-                        My Work
+                <div class="projects-heading">
+
+                    <div class="section-header reveal">
+
+                        <div class="section-label">
+                            My Work
+                        </div>
+
+                        <h2 class="section-title">
+                            Featured Projects
+                        </h2>
+
+                        <p class="section-subtitle">
+                            Some things I've built while learning,
+                            experimenting and solving problems.
+                        </p>
+
                     </div>
 
-                    <h2>
-                        Featured Projects
-                    </h2>
 
-                    <p>
-                        Some things I've built while learning,
-                        experimenting and solving problems.
-                    </p>
+                    <a
+                        href="#projects"
+                        class="view-all"
+                    >
+                        View All Projects →
+                    </a>
 
                 </div>
+
 
 
                 <div class="projects-grid">
 
 
-                    <article class="glass-card project-card">
+                    <!-- PROJECT 01 -->
+
+                    <article class="project-card reveal">
 
                         <div>
 
-                            <div class="project-number">
-                                01
+                            <div class="project-top">
+
+                                <div class="project-number">
+                                    01
+                                </div>
+
                             </div>
+
 
                             <div class="project-icon">
                                 🛒
                             </div>
 
+
                             <h3>
                                 E-Commerce Dashboard
                             </h3>
 
+
                             <p>
-                                A modern dashboard concept for managing
-                                products, inventory, orders and
-                                real-time business data.
+                                A modern dashboard concept for
+                                managing products, inventory,
+                                orders and real-time business data.
                             </p>
+
+
+                            <div class="project-tags">
+
+                                <span class="tag">
+                                    HTML
+                                </span>
+
+                                <span class="tag">
+                                    CSS
+                                </span>
+
+                                <span class="tag">
+                                    JavaScript
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div class="project-tags">
-                            <span class="tag">HTML</span>
-                            <span class="tag">CSS</span>
-                            <span class="tag">JavaScript</span>
+
+                        <div class="project-bottom">
+
+                            <div class="project-links">
+
+                                <!-- CHANGE LIVE DEMO LINK -->
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ↗ Live Demo
+                                </a>
+
+                                <!-- CHANGE GITHUB LINK -->
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ◉ GitHub
+                                </a>
+
+                            </div>
+
+                            <a
+                                href="#"
+                                class="arrow-btn"
+                            >
+                                →
+                            </a>
+
                         </div>
 
                     </article>
 
 
-                    <article class="glass-card project-card">
+
+                    <!-- PROJECT 02 -->
+
+                    <article class="project-card reveal">
 
                         <div>
 
-                            <div class="project-number">
-                                02
+                            <div class="project-top">
+
+                                <div class="project-number">
+                                    02
+                                </div>
+
                             </div>
+
 
                             <div class="project-icon">
                                 🤖
                             </div>
 
+
                             <h3>
                                 AI Image Generator
                             </h3>
 
+
                             <p>
-                                An AI-powered concept where users can
-                                generate creative artwork using
+                                An AI-powered concept where users
+                                can generate creative artwork using
                                 text-based prompts.
                             </p>
 
+
+                            <div class="project-tags">
+
+                                <span class="tag">
+                                    AI
+                                </span>
+
+                                <span class="tag">
+                                    JavaScript
+                                </span>
+
+                                <span class="tag">
+                                    API
+                                </span>
+
+                            </div>
+
                         </div>
 
-                        <div class="project-tags">
-                            <span class="tag">AI</span>
-                            <span class="tag">JavaScript</span>
-                            <span class="tag">API</span>
+
+                        <div class="project-bottom">
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ↗ Live Demo
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ◉ GitHub
+                                </a>
+
+                            </div>
+
+                            <a
+                                href="#"
+                                class="arrow-btn"
+                            >
+                                →
+                            </a>
+
                         </div>
 
                     </article>
 
 
-                    <article class="glass-card project-card">
+
+                    <!-- PROJECT 03 -->
+
+                    <article class="project-card reveal">
 
                         <div>
 
-                            <div class="project-number">
-                                03
+                            <div class="project-top">
+
+                                <div class="project-number">
+                                    03
+                                </div>
+
                             </div>
+
 
                             <div class="project-icon">
                                 💪
                             </div>
 
+
                             <h3>
                                 Fitness Tracker
                             </h3>
 
+
                             <p>
-                                A responsive fitness tracking interface
-                                for recording workouts and monitoring
-                                personal progress.
+                                A responsive fitness tracking
+                                interface for recording workouts
+                                and monitoring personal progress.
                             </p>
+
+
+                            <div class="project-tags">
+
+                                <span class="tag">
+                                    Web App
+                                </span>
+
+                                <span class="tag">
+                                    Responsive
+                                </span>
+
+                                <span class="tag">
+                                    UI/UX
+                                </span>
+
+                            </div>
 
                         </div>
 
-                        <div class="project-tags">
-                            <span class="tag">Web App</span>
-                            <span class="tag">Responsive</span>
-                            <span class="tag">UI/UX</span>
+
+                        <div class="project-bottom">
+
+                            <div class="project-links">
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ↗ Live Demo
+                                </a>
+
+                                <a
+                                    href="#"
+                                    class="project-link"
+                                >
+                                    ◉ GitHub
+                                </a>
+
+                            </div>
+
+                            <a
+                                href="#"
+                                class="arrow-btn"
+                            >
+                                →
+                            </a>
+
                         </div>
 
                     </article>
-
 
                 </div>
 
@@ -1125,102 +2471,124 @@
         </section>
 
 
-        <!-- ================= SKILLS ================= -->
+
+        <!-- =====================================================
+             SKILLS
+        ====================================================== -->
 
         <section id="skills">
 
             <div class="container">
 
-                <div class="section-heading">
 
-                    <div class="section-label">
-                        Expertise
-                    </div>
-
-                    <h2>
-                        Skills & Technologies
-                    </h2>
-
-                    <p>
-                        Technologies and concepts I'm working with.
-                    </p>
-
-                </div>
+                <div class="skills-layout">
 
 
-                <div class="skills-grid">
+                    <div class="section-header reveal">
 
-                    <div class="glass-card skill-card">
-
-                        <div class="skill-icon">
-                            🌐
+                        <div class="section-label">
+                            Expertise
                         </div>
 
-                        <h3>HTML & CSS</h3>
+                        <h2 class="section-title">
+                            Skills &
+                            Technologies
+                        </h2>
 
-                        <p>
-                            Web Structure & Styling
+                        <p class="section-subtitle">
+                            Technologies and concepts I'm working
+                            with.
                         </p>
 
                     </div>
 
 
-                    <div class="glass-card skill-card">
+                    <div class="skills-grid">
 
-                        <div class="skill-icon">
-                            ⚡
+
+                        <div class="skill-card reveal">
+
+                            <div class="skill-icon">
+                                🌐
+                            </div>
+
+                            <h3>
+                                HTML & CSS
+                            </h3>
+
+                            <p>
+                                Web Structure & Styling
+                            </p>
+
                         </div>
 
-                        <h3>JavaScript</h3>
 
-                        <p>
-                            Interactive Web Apps
-                        </p>
+                        <div class="skill-card reveal">
 
-                    </div>
+                            <div class="skill-icon">
+                                ⚡
+                            </div>
 
+                            <h3>
+                                JavaScript
+                            </h3>
 
-                    <div class="glass-card skill-card">
+                            <p>
+                                Interactive Web Apps
+                            </p>
 
-                        <div class="skill-icon">
-                            🐍
                         </div>
 
-                        <h3>Python</h3>
 
-                        <p>
-                            Programming & Logic
-                        </p>
+                        <div class="skill-card reveal">
 
-                    </div>
+                            <div class="skill-icon">
+                                🐍
+                            </div>
 
+                            <h3>
+                                Python
+                            </h3>
 
-                    <div class="glass-card skill-card">
+                            <p>
+                                Programming & Logic
+                            </p>
 
-                        <div class="skill-icon">
-                            💻
                         </div>
 
-                        <h3>C Programming</h3>
 
-                        <p>
-                            Core Programming
-                        </p>
+                        <div class="skill-card reveal">
 
-                    </div>
+                            <div class="skill-icon">
+                                C
+                            </div>
 
+                            <h3>
+                                C Programming
+                            </h3>
 
-                    <div class="glass-card skill-card">
+                            <p>
+                                Core Programming
+                            </p>
 
-                        <div class="skill-icon">
-                            🧠
                         </div>
 
-                        <h3>DSA</h3>
 
-                        <p>
-                            Problem Solving
-                        </p>
+                        <div class="skill-card reveal">
+
+                            <div class="skill-icon">
+                                🧠
+                            </div>
+
+                            <h3>
+                                DSA
+                            </h3>
+
+                            <p>
+                                Problem Solving
+                            </p>
+
+                        </div>
 
                     </div>
 
@@ -1231,33 +2599,45 @@
         </section>
 
 
-        <!-- ================= RESUME ================= -->
 
-        <section>
+        <!-- =====================================================
+             RESUME
+        ====================================================== -->
+
+        <section
+            id="resume"
+            class="resume-section"
+        >
 
             <div class="container">
 
-                <div class="resume-box">
+                <div class="resume-box reveal">
 
-                    <div class="section-label">
-                        My Resume
+
+                    <div class="resume-content">
+
+                        <div class="section-label">
+                            My Resume
+                        </div>
+
+                        <h2>
+                            Want to know more?
+                        </h2>
+
+                        <p>
+                            Check out my resume for my skills,
+                            projects and experience.
+                        </p>
+
                     </div>
 
-                    <h2>
-                        Want to know more?
-                    </h2>
 
-                    <p>
-                        Check out my resume for my skills,
-                        projects and experience.
-                    </p>
-
-                    <!-- VIEW RESUME IN NEW TAB -->
-
-                    <a href="resumeadi.pdf"
-                       target="_blank"
-                       rel="noopener"
-                       class="btn btn-primary">
+                    <a
+                        href="./resumeadi.pdf"
+                        target="_blank"
+                        rel="noopener"
+                        class="btn btn-primary resume-btn"
+                    >
                         📄 View My Resume →
                     </a>
 
@@ -1268,116 +2648,170 @@
         </section>
 
 
-        <!-- ================= CONTACT ================= -->
 
-        <section id="contact">
+        <!-- =====================================================
+             CONTACT
+        ====================================================== -->
+
+        <section
+            id="contact"
+            class="contact-section"
+        >
 
             <div class="container">
 
-                <div class="section-heading">
 
-                    <div class="section-label">
-                        Contact
+                <div class="contact-grid">
+
+
+                    <div class="contact-info reveal">
+
+                        <div class="section-label">
+                            Contact
+                        </div>
+
+                        <h2>
+                            Let's build
+                            <span>
+                                something.
+                            </span>
+                        </h2>
+
+                        <p>
+                            Have an idea, project or opportunity?
+                            Feel free to reach out.
+                        </p>
+
+
+                        <div class="contact-details">
+
+                            <!-- CHANGE EMAIL -->
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ✉
+                                </div>
+
+                                your@email.com
+
+                            </div>
+
+
+                            <div class="contact-detail">
+
+                                <div class="contact-icon">
+                                    ◉
+                                </div>
+
+                                GitHub / LinkedIn
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="social-sidebar">
+
+                            <!-- CHANGE LINKS -->
+
+                            <a
+                                href="https://github.com/"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="GitHub"
+                            >
+                                ◉
+                            </a>
+
+                            <a
+                                href="https://www.linkedin.com/"
+                                target="_blank"
+                                rel="noopener"
+                                aria-label="LinkedIn"
+                            >
+                                in
+                            </a>
+
+                            <a
+                                href="mailto:your@email.com"
+                                aria-label="Email"
+                            >
+                                ✉
+                            </a>
+
+                        </div>
+
                     </div>
 
-                    <h2>
-                        Let's build something.
-                    </h2>
-
-                    <p>
-                        Have an idea, project or opportunity?
-                        Feel free to reach out.
-                    </p>
-
-                </div>
 
 
-                <div class="contact-wrapper">
+                    <div class="contact-form-card reveal">
 
-                    <div class="glass-card">
-
-                        <form class="contact-form"
-                              id="contactForm">
-
-                            <div class="form-group">
-
-                                <label for="name">
-                                    Your Name
-                                </label>
-
-                                <input
-                                    id="name"
-                                    type="text"
-                                    placeholder="Enter your name"
-                                    required
-                                >
-
-                            </div>
+                        <form id="contactForm">
 
 
-                            <div class="form-group">
-
-                                <label for="email">
-                                    Email Address
-                                </label>
-
-                                <input
-                                    id="email"
-                                    type="email"
-                                    placeholder="you@example.com"
-                                    required
-                                >
-
-                            </div>
+                            <div class="form-grid">
 
 
-                            <div class="form-group">
+                                <div class="form-group">
 
-                                <label for="message">
-                                    Message
-                                </label>
+                                    <label for="name">
+                                        Your Name
+                                    </label>
 
-                                <textarea
-                                    id="message"
-                                    placeholder="Tell me about your project..."
-                                    required
-                                ></textarea>
+                                    <input
+                                        id="name"
+                                        type="text"
+                                        placeholder="Enter your name"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group">
+
+                                    <label for="email">
+                                        Email Address
+                                    </label>
+
+                                    <input
+                                        id="email"
+                                        type="email"
+                                        placeholder="you@example.com"
+                                        required
+                                    >
+
+                                </div>
+
+
+                                <div class="form-group full">
+
+                                    <label for="message">
+                                        Message
+                                    </label>
+
+                                    <textarea
+                                        id="message"
+                                        placeholder="Tell me about your project..."
+                                        required
+                                    ></textarea>
+
+                                </div>
+
 
                             </div>
 
 
                             <button
                                 type="submit"
-                                class="btn btn-primary">
-
+                                class="btn btn-primary send-btn"
+                            >
                                 Send Message →
-
                             </button>
 
                         </form>
-
-                    </div>
-
-
-                    <div class="socials">
-
-                        <a href="#"
-                           class="social"
-                           aria-label="GitHub">
-                            Git
-                        </a>
-
-                        <a href="#"
-                           class="social"
-                           aria-label="LinkedIn">
-                            in
-                        </a>
-
-                        <a href="mailto:your@email.com"
-                           class="social"
-                           aria-label="Email">
-                            @
-                        </a>
 
                     </div>
 
@@ -1390,11 +2824,14 @@
     </main>
 
 
-    <!-- ================= FOOTER ================= -->
+
+    <!-- =========================================================
+         FOOTER
+    ========================================================== -->
 
     <footer>
 
-        <div class="container">
+        <div class="container footer-inner">
 
             <p>
                 © 2026
@@ -1402,95 +2839,267 @@
                 Built with passion & code.
             </p>
 
+            <a
+                href="#top"
+                class="back-top"
+            >
+                Back to top ↑
+            </a>
+
         </div>
 
     </footer>
 
 
-    <!-- ================= JAVASCRIPT ================= -->
+
+    <!-- =========================================================
+         JAVASCRIPT
+    ========================================================== -->
 
     <script>
 
-        /* Contact form */
+        /* =====================================================
+           MOBILE MENU
+        ====================================================== */
 
-        const form = document.getElementById("contactForm");
+        const menuBtn =
+            document.getElementById("menuBtn");
 
-        form.addEventListener("submit", function(event) {
+        const mobileMenu =
+            document.getElementById("mobileMenu");
 
-            event.preventDefault();
+        menuBtn.addEventListener(
+            "click",
+            function () {
 
-            const name =
-                document.getElementById("name").value.trim();
+                mobileMenu.classList.toggle("active");
 
-            const email =
-                document.getElementById("email").value.trim();
+                document.body.classList.toggle(
+                    "menu-open"
+                );
 
-            const message =
-                document.getElementById("message").value.trim();
-
-
-            if (!name || !email || !message) {
-                alert("Please fill all fields.");
-                return;
             }
+        );
 
 
-            const subject =
-                encodeURIComponent(
-                    "Portfolio Contact - " + name
+        document
+            .querySelectorAll(".mobile-menu a")
+            .forEach(function(link) {
+
+                link.addEventListener(
+                    "click",
+                    function() {
+
+                        mobileMenu.classList.remove(
+                            "active"
+                        );
+
+                        document.body.classList.remove(
+                            "menu-open"
+                        );
+
+                    }
                 );
-
-            const body =
-                encodeURIComponent(
-                    "Name: " + name +
-                    "\nEmail: " + email +
-                    "\n\nMessage:\n" + message
-                );
-
-
-            /*
-             * Replace your@email.com with your
-             * real email address.
-             */
-
-            window.location.href =
-                "mailto:your@email.com?subject=" +
-                subject +
-                "&body=" +
-                body;
-
-        });
-
-
-        /* Navbar active smooth scrolling */
-
-        document.querySelectorAll(
-            'a[href^="#"]'
-        ).forEach(link => {
-
-            link.addEventListener("click", function(e) {
-
-                const target =
-                    document.querySelector(
-                        this.getAttribute("href")
-                    );
-
-                if (target) {
-
-                    e.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
 
             });
 
+
+
+        /* =====================================================
+           SCROLL REVEAL
+        ====================================================== */
+
+        const revealElements =
+            document.querySelectorAll(".reveal");
+
+        const revealObserver =
+            new IntersectionObserver(
+                function(entries) {
+
+                    entries.forEach(function(entry) {
+
+                        if (entry.isIntersecting) {
+
+                            entry.target.classList.add(
+                                "show"
+                            );
+
+                            revealObserver.unobserve(
+                                entry.target
+                            );
+
+                        }
+
+                    });
+
+                },
+                {
+                    threshold: 0.12
+                }
+            );
+
+
+        revealElements.forEach(function(element) {
+
+            revealObserver.observe(element);
+
         });
+
+
+
+        /* =====================================================
+           ACTIVE NAVIGATION
+        ====================================================== */
+
+        const sections =
+            document.querySelectorAll(
+                "main section[id]"
+            );
+
+        const navLinks =
+            document.querySelectorAll(
+                ".nav-links a:not(.nav-resume)"
+            );
+
+
+        window.addEventListener(
+            "scroll",
+            function() {
+
+                let current = "home";
+
+                sections.forEach(function(section) {
+
+                    const sectionTop =
+                        section.offsetTop - 150;
+
+                    if (
+                        window.scrollY >= sectionTop
+                    ) {
+
+                        current =
+                            section.getAttribute("id");
+
+                    }
+
+                });
+
+
+                navLinks.forEach(function(link) {
+
+                    link.classList.remove("active");
+
+                    if (
+                        link.getAttribute("href")
+                        === "#" + current
+                    ) {
+
+                        link.classList.add("active");
+
+                    }
+
+                });
+
+            }
+        );
+
+
+
+        /* =====================================================
+           CONTACT FORM
+        ====================================================== */
+
+        const form =
+            document.getElementById(
+                "contactForm"
+            );
+
+
+        form.addEventListener(
+            "submit",
+            function(event) {
+
+                event.preventDefault();
+
+
+                const name =
+                    document
+                        .getElementById("name")
+                        .value
+                        .trim();
+
+
+                const email =
+                    document
+                        .getElementById("email")
+                        .value
+                        .trim();
+
+
+                const message =
+                    document
+                        .getElementById("message")
+                        .value
+                        .trim();
+
+
+                if (
+                    !name ||
+                    !email ||
+                    !message
+                ) {
+
+                    alert(
+                        "Please fill all fields."
+                    );
+
+                    return;
+
+                }
+
+
+                /*
+                 * IMPORTANT:
+                 * Replace your@email.com below
+                 * with your actual email.
+                 */
+
+                const receiver =
+                    "your@email.com";
+
+
+                const subject =
+                    encodeURIComponent(
+                        "Portfolio Contact - " +
+                        name
+                    );
+
+
+                const body =
+                    encodeURIComponent(
+                        "Name: " +
+                        name +
+
+                        "\nEmail: " +
+                        email +
+
+                        "\n\nMessage:\n" +
+                        message
+                    );
+
+
+                window.location.href =
+                    "mailto:" +
+                    receiver +
+                    "?subject=" +
+                    subject +
+                    "&body=" +
+                    body;
+
+            }
+        );
 
     </script>
 
 </body>
 </html>
-```
