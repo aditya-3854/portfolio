@@ -1,0 +1,1496 @@
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Aditya Warsh | Developer Portfolio</title>
+
+    <meta name="description"
+        content="Aditya Warsh — Developer Portfolio. Web development, programming and creative digital projects.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #070b14;
+            --bg2: #0c1220;
+            --card: rgba(17, 25, 42, 0.72);
+            --card-solid: #111827;
+
+            --text: #f8fafc;
+            --muted: #94a3b8;
+
+            --accent: #38bdf8;
+            --accent2: #818cf8;
+            --green: #22c55e;
+
+            --border: rgba(148, 163, 184, 0.13);
+
+            --radius: 22px;
+            --transition: 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: "Inter", sans-serif;
+            background:
+                radial-gradient(circle at 15% 15%, rgba(56, 189, 248, .10), transparent 28%),
+                radial-gradient(circle at 85% 20%, rgba(129, 140, 248, .10), transparent 28%),
+                var(--bg);
+            color: var(--text);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+
+        button,
+        input,
+        textarea {
+            font-family: inherit;
+        }
+
+        .container {
+            width: min(1120px, 92%);
+            margin: auto;
+        }
+
+        /* =========================
+           BACKGROUND
+        ========================= */
+
+        .orb {
+            position: fixed;
+            width: 350px;
+            height: 350px;
+            border-radius: 50%;
+            filter: blur(100px);
+            opacity: .12;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .orb.one {
+            background: var(--accent);
+            top: 10%;
+            left: -180px;
+        }
+
+        .orb.two {
+            background: var(--accent2);
+            right: -180px;
+            bottom: 10%;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================= */
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+
+            background: rgba(7, 11, 20, .72);
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(255,255,255,.05);
+        }
+
+        .nav-content {
+            height: 76px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: -1px;
+        }
+
+        .logo span {
+            color: var(--accent);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--muted);
+            font-size: .92rem;
+            font-weight: 500;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--text);
+        }
+
+        .nav-cta {
+            padding: 10px 18px;
+            border: 1px solid rgba(56,189,248,.35);
+            border-radius: 999px;
+            color: var(--accent) !important;
+        }
+
+        .nav-cta:hover {
+            background: rgba(56,189,248,.1);
+        }
+
+        /* =========================
+           HERO
+        ========================= */
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 130px 0 80px;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.3fr .7fr;
+            align-items: center;
+            gap: 70px;
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+
+            padding: 8px 14px;
+            border-radius: 999px;
+
+            background: rgba(56,189,248,.07);
+            border: 1px solid rgba(56,189,248,.18);
+
+            color: var(--accent);
+            font-size: .82rem;
+            font-weight: 600;
+
+            margin-bottom: 24px;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            background: var(--green);
+            border-radius: 50%;
+            box-shadow: 0 0 12px var(--green);
+        }
+
+        .hero h1 {
+            font-family: "Space Grotesk", sans-serif;
+            font-size: clamp(3.2rem, 7vw, 5.8rem);
+            line-height: .98;
+            letter-spacing: -4px;
+            margin-bottom: 25px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(
+                100deg,
+                #fff,
+                var(--accent),
+                var(--accent2)
+            );
+
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .hero-description {
+            color: var(--muted);
+            font-size: 1.08rem;
+            max-width: 650px;
+            margin-bottom: 32px;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 13px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            gap: 9px;
+
+            padding: 13px 22px;
+            border-radius: 12px;
+
+            font-weight: 700;
+            font-size: .92rem;
+
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent), var(--accent2));
+            color: #06101c;
+            box-shadow: 0 10px 35px rgba(56,189,248,.18);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 45px rgba(56,189,248,.28);
+        }
+
+        .btn-secondary {
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.025);
+            color: var(--text);
+        }
+
+        .btn-secondary:hover {
+            border-color: rgba(56,189,248,.4);
+            background: rgba(56,189,248,.06);
+            transform: translateY(-3px);
+        }
+
+        /* PROFILE */
+
+        .profile-wrapper {
+            display: flex;
+            justify-content: center;
+        }
+
+        .profile-card {
+            width: 310px;
+            height: 370px;
+
+            padding: 12px;
+
+            border-radius: 30px;
+
+            background:
+                linear-gradient(145deg,
+                rgba(56,189,248,.25),
+                rgba(129,140,248,.06));
+
+            border: 1px solid rgba(255,255,255,.10);
+
+            box-shadow:
+                0 30px 80px rgba(0,0,0,.35);
+
+            transform: rotate(3deg);
+            transition: .5s ease;
+        }
+
+        .profile-card:hover {
+            transform: rotate(0deg) translateY(-8px);
+        }
+
+        .profile-inner {
+            width: 100%;
+            height: 100%;
+
+            border-radius: 22px;
+            overflow: hidden;
+
+            background: var(--card-solid);
+            position: relative;
+        }
+
+        .profile-inner img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-overlay {
+            position: absolute;
+            left: 0;
+            right: 0;
+            bottom: 0;
+
+            padding: 50px 22px 22px;
+
+            background: linear-gradient(
+                transparent,
+                rgba(3,7,18,.95)
+            );
+        }
+
+        .profile-overlay h3 {
+            font-family: "Space Grotesk";
+            font-size: 1.3rem;
+        }
+
+        .profile-overlay p {
+            color: var(--accent);
+            font-size: .85rem;
+        }
+
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 110px 0;
+        }
+
+        .section-heading {
+            text-align: center;
+            margin-bottom: 55px;
+        }
+
+        .section-label {
+            color: var(--accent);
+            font-size: .78rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .section-heading h2 {
+            font-family: "Space Grotesk";
+            font-size: clamp(2.2rem, 5vw, 3.3rem);
+            letter-spacing: -2px;
+        }
+
+        .section-heading p {
+            color: var(--muted);
+            max-width: 600px;
+            margin: 12px auto 0;
+        }
+
+        /* =========================
+           ABOUT
+        ========================= */
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .glass-card {
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 32px;
+
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+
+            transition: var(--transition);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(56,189,248,.22);
+        }
+
+        .about-main p {
+            color: var(--muted);
+            margin-bottom: 15px;
+        }
+
+        .about-main strong {
+            color: var(--text);
+        }
+
+        .quick-info {
+            display: grid;
+            gap: 16px;
+        }
+
+        .info-row {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+
+            padding-bottom: 15px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .info-row:last-child {
+            border-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .info-row span:first-child {
+            color: var(--muted);
+        }
+
+        .info-row span:last-child {
+            color: var(--text);
+            font-weight: 600;
+            text-align: right;
+        }
+
+        /* =========================
+           PROJECTS
+        ========================= */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .project-card {
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-number {
+            color: rgba(148,163,184,.25);
+            font-family: "Space Grotesk";
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .project-icon {
+            font-size: 2.5rem;
+            margin: 18px 0;
+        }
+
+        .project-card h3 {
+            font-family: "Space Grotesk";
+            font-size: 1.35rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: var(--muted);
+            font-size: .92rem;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 20px;
+        }
+
+        .tag {
+            font-size: .72rem;
+            color: var(--accent);
+            padding: 5px 9px;
+            border-radius: 7px;
+            background: rgba(56,189,248,.07);
+            border: 1px solid rgba(56,189,248,.12);
+        }
+
+        /* =========================
+           SKILLS
+        ========================= */
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 16px;
+        }
+
+        .skill-card {
+            text-align: center;
+            padding: 28px 15px;
+        }
+
+        .skill-icon {
+            width: 65px;
+            height: 65px;
+
+            margin: 0 auto 16px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 18px;
+
+            background: linear-gradient(
+                145deg,
+                rgba(56,189,248,.12),
+                rgba(129,140,248,.08)
+            );
+
+            border: 1px solid rgba(56,189,248,.12);
+
+            font-size: 1.7rem;
+        }
+
+        .skill-card h3 {
+            font-size: .9rem;
+            margin-bottom: 5px;
+        }
+
+        .skill-card p {
+            color: var(--muted);
+            font-size: .75rem;
+        }
+
+        /* =========================
+           RESUME CTA
+        ========================= */
+
+        .resume-box {
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+
+            padding: 65px 30px;
+
+            border-radius: 28px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    rgba(56,189,248,.10),
+                    rgba(129,140,248,.10)
+                );
+
+            border: 1px solid rgba(56,189,248,.18);
+        }
+
+        .resume-box::before {
+            content: "";
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            background: var(--accent);
+            filter: blur(100px);
+            opacity: .08;
+            top: -150px;
+            left: 50%;
+        }
+
+        .resume-box h2 {
+            font-family: "Space Grotesk";
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .resume-box p {
+            color: var(--muted);
+            margin-bottom: 25px;
+        }
+
+        /* =========================
+           CONTACT
+        ========================= */
+
+        .contact-wrapper {
+            max-width: 700px;
+            margin: auto;
+        }
+
+        .contact-form {
+            display: grid;
+            gap: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 7px;
+            font-size: .85rem;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 14px 15px;
+
+            border-radius: 11px;
+            border: 1px solid var(--border);
+
+            outline: none;
+
+            background: rgba(7,11,20,.65);
+            color: var(--text);
+
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: rgba(56,189,248,.5);
+            box-shadow: 0 0 0 3px rgba(56,189,248,.06);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        /* =========================
+           SOCIAL
+        ========================= */
+
+        .socials {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-top: 28px;
+        }
+
+        .social {
+            width: 44px;
+            height: 44px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 12px;
+
+            border: 1px solid var(--border);
+            background: rgba(255,255,255,.025);
+
+            color: var(--muted);
+
+            transition: var(--transition);
+        }
+
+        .social:hover {
+            color: var(--accent);
+            border-color: rgba(56,189,248,.35);
+            transform: translateY(-4px);
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 35px 0;
+            text-align: center;
+            color: var(--muted);
+            font-size: .85rem;
+        }
+
+        footer strong {
+            color: var(--text);
+        }
+
+        /* =========================
+           ANIMATION
+        ========================= */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(25px);
+            animation: reveal .8s forwards;
+        }
+
+        @keyframes reveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 900px) {
+
+            .hero-grid,
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-content {
+                text-align: center;
+            }
+
+            .hero-description {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-buttons {
+                justify-content: center;
+            }
+
+            .profile-wrapper {
+                order: -1;
+            }
+
+            .profile-card {
+                width: 250px;
+                height: 300px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+        }
+
+        @media (max-width: 650px) {
+
+            .nav-links {
+                display: none;
+            }
+
+            .nav-cta {
+                display: block;
+            }
+
+            section {
+                padding: 80px 0;
+            }
+
+            .hero h1 {
+                font-size: 3.2rem;
+                letter-spacing: -2px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .skills-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .glass-card {
+                padding: 24px;
+            }
+
+            .resume-box h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="orb one"></div>
+    <div class="orb two"></div>
+
+    <!-- ================= NAVBAR ================= -->
+
+    <nav>
+        <div class="container nav-content">
+
+            <a href="#home" class="logo">
+                ADITYA<span>.</span>
+            </a>
+
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li>
+                    <a href="resumeadi.pdf"
+                       target="_blank"
+                       rel="noopener"
+                       class="nav-cta">
+                        View Resume
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+    </nav>
+
+
+    <!-- ================= HERO ================= -->
+
+    <main id="home">
+
+        <section class="hero">
+
+            <div class="container hero-grid">
+
+                <div class="hero-content reveal">
+
+                    <div class="badge">
+                        <span class="status-dot"></span>
+                        Available for opportunities
+                    </div>
+
+                    <h1>
+                        Hi, I'm
+                        <span class="gradient-text">
+                            Aditya Warsh
+                        </span>
+                    </h1>
+
+                    <p class="hero-description">
+                        I'm a passionate developer who loves turning ideas
+                        into modern, functional and beautiful digital
+                        experiences.
+                    </p>
+
+                    <div class="hero-buttons">
+
+                        <a href="#projects"
+                           class="btn btn-primary">
+                            Explore My Work →
+                        </a>
+
+                        <!-- VIEW RESUME -->
+                        <a href="resumeadi.pdf"
+                           target="_blank"
+                           rel="noopener"
+                           class="btn btn-secondary">
+                            📄 View Resume
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="profile-wrapper reveal">
+
+                    <div class="profile-card">
+
+                        <div class="profile-inner">
+
+                            <img src="aditya.jpeg"
+                                 alt="Aditya Warsh">
+
+                            <div class="profile-overlay">
+
+                                <h3>Aditya Warsh</h3>
+
+                                <p>
+                                    Developer • Coder • Creator
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= ABOUT ================= -->
+
+        <section id="about">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        About Me
+                    </div>
+
+                    <h2>
+                        Building with curiosity.
+                    </h2>
+
+                    <p>
+                        A little introduction about who I am
+                        and what I love creating.
+                    </p>
+
+                </div>
+
+
+                <div class="about-grid">
+
+                    <div class="glass-card about-main">
+
+                        <p>
+                            Hi, I'm <strong>Aditya Warsh</strong>.
+                            I'm a passionate coder and web developer
+                            who enjoys building projects that solve
+                            real-world problems.
+                        </p>
+
+                        <p>
+                            I love transforming complex ideas into
+                            simple, intuitive and user-friendly
+                            digital experiences.
+                        </p>
+
+                        <p>
+                            I'm continuously learning new technologies
+                            and improving my development skills by
+                            building practical projects.
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card quick-info">
+
+                        <div class="info-row">
+                            <span>Role</span>
+                            <span>Web Developer</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Focus</span>
+                            <span>Web & Software</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Languages</span>
+                            <span>HTML • CSS • JS • Python • C</span>
+                        </div>
+
+                        <div class="info-row">
+                            <span>Currently</span>
+                            <span>Learning & Building</span>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= PROJECTS ================= -->
+
+        <section id="projects">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        My Work
+                    </div>
+
+                    <h2>
+                        Featured Projects
+                    </h2>
+
+                    <p>
+                        Some things I've built while learning,
+                        experimenting and solving problems.
+                    </p>
+
+                </div>
+
+
+                <div class="projects-grid">
+
+
+                    <article class="glass-card project-card">
+
+                        <div>
+
+                            <div class="project-number">
+                                01
+                            </div>
+
+                            <div class="project-icon">
+                                🛒
+                            </div>
+
+                            <h3>
+                                E-Commerce Dashboard
+                            </h3>
+
+                            <p>
+                                A modern dashboard concept for managing
+                                products, inventory, orders and
+                                real-time business data.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tags">
+                            <span class="tag">HTML</span>
+                            <span class="tag">CSS</span>
+                            <span class="tag">JavaScript</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="glass-card project-card">
+
+                        <div>
+
+                            <div class="project-number">
+                                02
+                            </div>
+
+                            <div class="project-icon">
+                                🤖
+                            </div>
+
+                            <h3>
+                                AI Image Generator
+                            </h3>
+
+                            <p>
+                                An AI-powered concept where users can
+                                generate creative artwork using
+                                text-based prompts.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tags">
+                            <span class="tag">AI</span>
+                            <span class="tag">JavaScript</span>
+                            <span class="tag">API</span>
+                        </div>
+
+                    </article>
+
+
+                    <article class="glass-card project-card">
+
+                        <div>
+
+                            <div class="project-number">
+                                03
+                            </div>
+
+                            <div class="project-icon">
+                                💪
+                            </div>
+
+                            <h3>
+                                Fitness Tracker
+                            </h3>
+
+                            <p>
+                                A responsive fitness tracking interface
+                                for recording workouts and monitoring
+                                personal progress.
+                            </p>
+
+                        </div>
+
+                        <div class="project-tags">
+                            <span class="tag">Web App</span>
+                            <span class="tag">Responsive</span>
+                            <span class="tag">UI/UX</span>
+                        </div>
+
+                    </article>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= SKILLS ================= -->
+
+        <section id="skills">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Expertise
+                    </div>
+
+                    <h2>
+                        Skills & Technologies
+                    </h2>
+
+                    <p>
+                        Technologies and concepts I'm working with.
+                    </p>
+
+                </div>
+
+
+                <div class="skills-grid">
+
+                    <div class="glass-card skill-card">
+
+                        <div class="skill-icon">
+                            🌐
+                        </div>
+
+                        <h3>HTML & CSS</h3>
+
+                        <p>
+                            Web Structure & Styling
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card skill-card">
+
+                        <div class="skill-icon">
+                            ⚡
+                        </div>
+
+                        <h3>JavaScript</h3>
+
+                        <p>
+                            Interactive Web Apps
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card skill-card">
+
+                        <div class="skill-icon">
+                            🐍
+                        </div>
+
+                        <h3>Python</h3>
+
+                        <p>
+                            Programming & Logic
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card skill-card">
+
+                        <div class="skill-icon">
+                            💻
+                        </div>
+
+                        <h3>C Programming</h3>
+
+                        <p>
+                            Core Programming
+                        </p>
+
+                    </div>
+
+
+                    <div class="glass-card skill-card">
+
+                        <div class="skill-icon">
+                            🧠
+                        </div>
+
+                        <h3>DSA</h3>
+
+                        <p>
+                            Problem Solving
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= RESUME ================= -->
+
+        <section>
+
+            <div class="container">
+
+                <div class="resume-box">
+
+                    <div class="section-label">
+                        My Resume
+                    </div>
+
+                    <h2>
+                        Want to know more?
+                    </h2>
+
+                    <p>
+                        Check out my resume for my skills,
+                        projects and experience.
+                    </p>
+
+                    <!-- VIEW RESUME IN NEW TAB -->
+
+                    <a href="resume.pdf"
+                       target="_blank"
+                       rel="noopener"
+                       class="btn btn-primary">
+                        📄 View My Resume →
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CONTACT ================= -->
+
+        <section id="contact">
+
+            <div class="container">
+
+                <div class="section-heading">
+
+                    <div class="section-label">
+                        Contact
+                    </div>
+
+                    <h2>
+                        Let's build something.
+                    </h2>
+
+                    <p>
+                        Have an idea, project or opportunity?
+                        Feel free to reach out.
+                    </p>
+
+                </div>
+
+
+                <div class="contact-wrapper">
+
+                    <div class="glass-card">
+
+                        <form class="contact-form"
+                              id="contactForm">
+
+                            <div class="form-group">
+
+                                <label for="name">
+                                    Your Name
+                                </label>
+
+                                <input
+                                    id="name"
+                                    type="text"
+                                    placeholder="Enter your name"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="email">
+                                    Email Address
+                                </label>
+
+                                <input
+                                    id="email"
+                                    type="email"
+                                    placeholder="you@example.com"
+                                    required
+                                >
+
+                            </div>
+
+
+                            <div class="form-group">
+
+                                <label for="message">
+                                    Message
+                                </label>
+
+                                <textarea
+                                    id="message"
+                                    placeholder="Tell me about your project..."
+                                    required
+                                ></textarea>
+
+                            </div>
+
+
+                            <button
+                                type="submit"
+                                class="btn btn-primary">
+
+                                Send Message →
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+
+                    <div class="socials">
+
+                        <a href="#"
+                           class="social"
+                           aria-label="GitHub">
+                            Git
+                        </a>
+
+                        <a href="#"
+                           class="social"
+                           aria-label="LinkedIn">
+                            in
+                        </a>
+
+                        <a href="mailto:your@email.com"
+                           class="social"
+                           aria-label="Email">
+                            @
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <div class="container">
+
+            <p>
+                © 2026
+                <strong>Aditya Warsh</strong>.
+                Built with passion & code.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ================= JAVASCRIPT ================= -->
+
+    <script>
+
+        /* Contact form */
+
+        const form = document.getElementById("contactForm");
+
+        form.addEventListener("submit", function(event) {
+
+            event.preventDefault();
+
+            const name =
+                document.getElementById("name").value.trim();
+
+            const email =
+                document.getElementById("email").value.trim();
+
+            const message =
+                document.getElementById("message").value.trim();
+
+
+            if (!name || !email || !message) {
+                alert("Please fill all fields.");
+                return;
+            }
+
+
+            const subject =
+                encodeURIComponent(
+                    "Portfolio Contact - " + name
+                );
+
+            const body =
+                encodeURIComponent(
+                    "Name: " + name +
+                    "\nEmail: " + email +
+                    "\n\nMessage:\n" + message
+                );
+
+
+            /*
+             * Replace your@email.com with your
+             * real email address.
+             */
+
+            window.location.href =
+                "mailto:your@email.com?subject=" +
+                subject +
+                "&body=" +
+                body;
+
+        });
+
+
+        /* Navbar active smooth scrolling */
+
+        document.querySelectorAll(
+            'a[href^="#"]'
+        ).forEach(link => {
+
+            link.addEventListener("click", function(e) {
+
+                const target =
+                    document.querySelector(
+                        this.getAttribute("href")
+                    );
+
+                if (target) {
+
+                    e.preventDefault();
+
+                    target.scrollIntoView({
+                        behavior: "smooth"
+                    });
+
+                }
+
+            });
+
+        });
+
+    </script>
+
+</body>
+</html>
+```
